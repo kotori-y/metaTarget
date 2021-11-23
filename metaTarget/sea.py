@@ -21,7 +21,11 @@ async def sea(smiles: str) -> json:
     url = "https://sea.bkslab.org/"
     resp = session.get(url)
     tree = etree.HTML(resp.text)
-    token = tree.xpath('//*[@id="csrf_token"]/@value')[0]
+
+    try:
+        token = tree.xpath('//*[@id="csrf_token"]/@value')[0]
+    except IndexError:
+        return "{}"
 
     start_url = 'https://sea.bkslab.org/search'
 
