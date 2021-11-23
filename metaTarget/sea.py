@@ -37,7 +37,7 @@ async def sea(smiles: str) -> json:
         'query_custom_targets_paste': smiles,  # Mol
     }
 
-    response = session.post(url=start_url, headers=headers, data=data)
+    response = session.post(url=start_url, headers=headers, data=data, timeout=70)
     page = session.get(response.url).text
 
     attempt = 0
