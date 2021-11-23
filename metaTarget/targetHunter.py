@@ -1,14 +1,15 @@
-import requests
+import asyncio
 import re
-import pandas as pd
+import warnings
 
+import pandas as pd
+import requests
 from requests.exceptions import RequestException
 
-import warnings
 warnings.filterwarnings("ignore")
 
 
-def targetHunter(smile):
+async def targetHunter(smile):
     # https://www.cbligand.org/TargetHunter/search_target.php
 
     login_url = 'https://www.cbligand.org/TargetHunter/login.php'
@@ -72,5 +73,5 @@ def targetHunter(smile):
 
 if __name__ == "__main__":
     _smi = "CCCCCC"
-    res = targetHunter(_smi)
+    res = asyncio.run(targetHunter(_smi))
     print(res)
