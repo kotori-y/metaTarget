@@ -10,6 +10,7 @@ from lxml import etree
 
 from requests.exceptions import RequestException
 
+
 @retry(maxAttemptTimes=3)
 async def sea(smiles: str) -> json:
     headers = {

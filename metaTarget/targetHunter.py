@@ -24,7 +24,7 @@ async def targetHunter(smile):
     session = requests.Session()
 
     try:
-        response = session.post(url=login_url, data=data, headers=header, timeout=60, verify=False)
+        _ = session.post(url=login_url, data=data, headers=header, timeout=60, verify=False)
     except RequestException:
         return "{}"
 
