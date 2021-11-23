@@ -37,14 +37,14 @@ async def passOnline(smiles: str):
         try:
             df = pd.read_html(result, header=0, thousands=None)[0]
         except ValueError:
-            return pd.DataFrame()
+            return "{}"
 
         df.columns = ['Probability to be active', 'Probability to be inactive', 'Biological Activity']
 
     except RequestException:
-        df = pd.DataFrame()
+        df = "{}"
 
-    return df.to_json()
+    return df.T.to_json()
 
 
 if __name__ == "__main__":
