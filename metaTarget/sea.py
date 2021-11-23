@@ -52,5 +52,5 @@ async def sea(smiles: str) -> json:
 
 
 if __name__ == "__main__":
-    _smiles: str = "xx"
+    _smiles: str = "c1ccccc1"
     res = asyncio.run(sea(_smiles))
