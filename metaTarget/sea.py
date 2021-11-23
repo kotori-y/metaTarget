@@ -8,6 +8,7 @@ from utils import retry
 
 from lxml import etree
 
+from requests.exceptions import RequestException
 
 @retry(maxAttemptTimes=3)
 async def sea(smiles: str) -> json:
@@ -36,9 +37,15 @@ async def sea(smiles: str) -> json:
         'query_type': 'custom',
         'query_custom_targets_paste': smiles,  # Mol
     }
+    try:
+        response = session.post(url=start_url, headers=headers, data=data, timeout=70)
+    except RequestException:
+        return "{}"
 
-    response = session.post(url=start_url, headers=headers, data=data, timeout=70)
-    page = session.get(response.url).text
+    try:
+        page = session.get(response.url).text
+    except RequestException:
+        return
 
     attempt = 0
     while 'pending' in page:
