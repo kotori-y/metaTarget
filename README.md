@@ -26,6 +26,8 @@ python setup.py install
 
 ## 使用
 
+### 单接口预测
+
 通过调用<code>asyncio</code>使用，以Target Net为例
 
 ```python
@@ -45,5 +47,33 @@ if __name__ == "__main__":
     print(out)
 ```
 
+### 多接口并发
 
+使用<code>asyncio</code>的<code>gather()</code>实现并发
+
+```python
+import asyncio
+import json
+
+import pandas as pd
+
+from metaTarget import targetNet, passOnline, targetHunter
+
+
+async def main(smiles):
+    return await asyncio.gather(
+        targetNet(smiles),
+        passOnline(smiles),
+        targetHunter(smiles)
+    )
+
+if __name__ == "__main__":
+    smiles = "FC1=CC=C(CC2=NNC(=O)C3=CC=CC=C23)C=C1C(=O)N1CCN(CC1)C(=O)C1CC1"
+    jsonRes = asyncio.run(main(smiles))
+    # print(jsonRes)
+
+    res = [json.loads(_) for _ in jsonRes]
+    out = [pd.DataFrame(_).T for _ in res]
+    # print(out)
+```
 
