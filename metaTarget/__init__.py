@@ -7,12 +7,14 @@ try:
     from .targetHunter import targetHunter
     from .passOnline import passOnline
     from .sea import sea
+    from .targetNet import targetNet
     from .ppb2 import *
 except ImportError:
     from swiss import swiss
     from targetHunter import targetHunter
     from passOnline import passOnline
     from sea import sea
+    from targetNet import targetNet
     from ppb2 import *
 
 
