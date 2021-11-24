@@ -1,14 +1,16 @@
 # MetaTarget 1.1
 
+## Features
+
 - 使用异步函数实现并发
 - 使用装饰器来进行重试
 - 更具体的异常捕，利于后期维护
 
 ## 接口监控
 
-| SEA                                                          | Swiss TargetPrediction                                       | PassOnline                                                   | Targrt Hunter                                                | Target Net                                                   | PPB2 (one out of)                                            |
+| SEA                                                          | Swiss TargetPrediction                                       | PassOnline                                                   | Targrt Hunter                                                | Target Net                                                   | PPB2                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [![sea testing](https://github.com/kotori-y/metaTarget/actions/workflows/test_sea.yml/badge.svg)](https://github.com/kotori-y/metaTarget/actions/workflows/test_sea.yml) | [![swiss testing](https://github.com/kotori-y/metaTarget/actions/workflows/test_swiss.yml/badge.svg)](https://github.com/kotori-y/metaTarget/actions/workflows/test_swiss.yml) | [![passOnline testing](https://github.com/kotori-y/metaTarget/actions/workflows/test_passOnline.yml/badge.svg)](https://github.com/kotori-y/metaTarget/actions/workflows/test_passOnline.yml) | [![targetHunter testing](https://github.com/kotori-y/metaTarget/actions/workflows/test_targetHunter.yml/badge.svg)](https://github.com/kotori-y/metaTarget/actions/workflows/test_targetHunter.yml) | [![targetNet testing](https://github.com/kotori-y/metaTarget/actions/workflows/test_targetNet.yml/badge.svg)](https://github.com/kotori-y/metaTarget/actions/workflows/test_targetNet.yml) | [![ppb2_dnn_ecfp4 testing](https://github.com/kotori-y/metaTarget/actions/workflows/test_ppb2_dnn_ecfp4.yml/badge.svg)](https://github.com/kotori-y/metaTarget/actions/workflows/test_ppb2_dnn_ecfp4.yml) |
+| [![sea testing](https://github.com/kotori-y/metaTarget/actions/workflows/test_sea.yml/badge.svg)](https://github.com/kotori-y/metaTarget/actions/workflows/test_sea.yml) | [![swiss testing](https://github.com/kotori-y/metaTarget/actions/workflows/test_swiss.yml/badge.svg)](https://github.com/kotori-y/metaTarget/actions/workflows/test_swiss.yml) | [![passOnline testing](https://github.com/kotori-y/metaTarget/actions/workflows/test_passOnline.yml/badge.svg)](https://github.com/kotori-y/metaTarget/actions/workflows/test_passOnline.yml) | [![targetHunter testing](https://github.com/kotori-y/metaTarget/actions/workflows/test_targetHunter.yml/badge.svg)](https://github.com/kotori-y/metaTarget/actions/workflows/test_targetHunter.yml)c | [![targetNet testing](https://github.com/kotori-y/metaTarget/actions/workflows/test_targetNet.yml/badge.svg)](https://github.com/kotori-y/metaTarget/actions/workflows/test_targetNet.yml) | [![ppb2_dnn_ecfp4 testing](https://github.com/kotori-y/metaTarget/actions/workflows/test_ppb2_dnn_ecfp4.yml/badge.svg)](https://github.com/kotori-y/metaTarget/actions/workflows/test_ppb2_dnn_ecfp4.yml) |
 
 ## 安装
 
@@ -28,7 +30,7 @@ python setup.py install
 
 ### 单接口预测
 
-通过调用<code>asyncio</code>使用，以Target Net为例
+通过调用<code>asyncio</code>运行异步函数
 
 ```python
 import asyncio
