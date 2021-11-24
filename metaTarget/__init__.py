@@ -17,6 +17,10 @@ except ImportError:
     from targetNet import targetNet
     from ppb2 import *
 
+from pkg_resources import get_distribution
+
+__version__ = get_distribution('meta_target').version
+
 
 class MetaTarget:
     def __init__(self, smiles: str):
