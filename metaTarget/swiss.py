@@ -4,7 +4,10 @@ import time
 import re
 import pandas as pd
 
-from utils import retry
+try:
+    from .utils import retry
+except ImportError:
+    from utils import retry
 
 import asyncio
 from requests.exceptions import RequestException

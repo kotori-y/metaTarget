@@ -4,7 +4,10 @@ import pandas as pd
 import requests
 from requests.exceptions import RequestException
 
-from utils import retry
+try:
+    from .utils import retry
+except ImportError:
+    from utils import retry
 
 
 @retry(maxAttemptTimes=3)

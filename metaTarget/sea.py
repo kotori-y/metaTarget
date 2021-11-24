@@ -1,10 +1,13 @@
 import asyncio
 import json
 
-import requests
 import pandas as pd
+import requests
 
-from utils import retry
+try:
+    from .utils import retry
+except ImportError:
+    from utils import retry
 
 from lxml import etree
 

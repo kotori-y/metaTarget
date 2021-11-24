@@ -1,15 +1,19 @@
 import time
 
-from sea import sea
-from swiss import swiss
-
 import asyncio
 
-from swiss import swiss
-from targetHunter import targetHunter
-from passOnline import passOnline
-from sea import sea
-from ppb2 import *
+try:
+    from .swiss import swiss
+    from .targetHunter import targetHunter
+    from .passOnline import passOnline
+    from .sea import sea
+    from .ppb2 import *
+except ImportError:
+    from swiss import swiss
+    from targetHunter import targetHunter
+    from passOnline import passOnline
+    from sea import sea
+    from ppb2 import *
 
 
 class MetaTarget:
