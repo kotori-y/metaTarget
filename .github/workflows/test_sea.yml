@@ -1,4 +1,4 @@
-name: metaTarget testing
+name: sea testing
 
 on: [push, workflow_dispatch]
 
@@ -18,6 +18,9 @@ jobs:
       run: |
         # $CONDA is an environment variable pointing to the root of the miniconda directory
         echo $CONDA/bin >> $GITHUB_PATH
+    - name: Install Module
+      run: |
+        python setup.py install
     - name: Install dependencies
       run: |
          pip install -r requirements.txt
