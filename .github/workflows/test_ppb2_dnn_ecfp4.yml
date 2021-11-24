@@ -3,7 +3,7 @@ name: ppb2_dnn_ecfp4 testing
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 1 * * *'
+    - cron: '0 0/8 * * *'
 
 jobs:
   build-linux:

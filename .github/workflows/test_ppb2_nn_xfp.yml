@@ -3,7 +3,7 @@ name: ppb2_nn_xfp testing
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 5 * * *'
+    - cron: '0 4/8 * * *'
 
 jobs:
   build-linux:

@@ -3,7 +3,7 @@ name: ppb2_nn_mqn testing
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 4 * * *'
+    - cron: '0 3/8 * * *'
 
 jobs:
   build-linux:
