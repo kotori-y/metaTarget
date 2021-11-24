@@ -26,26 +26,25 @@ async def swiss(smile):
     except RequestException:
         return "{}"
 
-    patterns = re.compile('location.replace\("(.*?)"\);')
     try:
-        x = re.findall(patterns,response.text)[0]
+        x = re.findall('location.replace\("(.*?)"\);', response.text)[0]
     except IndexError:
         return "{}"
 
-    result_url = 'http://www.swisstargetprediction.ch/'+x
+    result_url = 'http://www.swisstargetprediction.ch/' + x
     await asyncio.sleep(15)
 
     try:
-        page = s.get(result_url,timeout=60).text
+        page = s.get(result_url, timeout=60).text
     except RequestException:
         return "{}"
 
     try:
-        df = pd.read_html(page,header=0)[0]
+        df = pd.read_html(page, header=0)[0]
     except ValueError:
         return "{}"
 
-    clean_actives = [x.replace(' &nbsp','') for x in df['Known actives (3D/2D)']]
+    clean_actives = [x.replace(' &nbsp', '') for x in df['Known actives (3D/2D)']]
     df['Known actives (3D/2D)'] = clean_actives
 
     return df.T.to_json()
