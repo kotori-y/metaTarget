@@ -3,7 +3,7 @@ import warnings
 
 import pytest
 
-from metaTarget import ppb2_dnn_ecfp4
+from metaTarget import ppb2_nb_ecfp4
 
 warnings.filterwarnings("ignore")
 SMILES = "FC1=CC=C(CC2=NNC(=O)C3=CC=CC=C23)C=C1C(=O)N1CCN(CC1)C(=O)C1CC1"
@@ -19,9 +19,9 @@ def setup_module(request):
 
 
 @pytest.mark.parametrize("smiles", (SMILES,))
-def test_ppb2_dnn_ecfp4(setup_module, smiles):
-    print('ppb2_dnn_ecfp4 called.')
-    assert asyncio.run(ppb2_dnn_ecfp4(smiles)) != "{}"
+def test_ppb2_nb_ecfp4(setup_module, smiles):
+    print('ppb2_nb_ecfp4 called.')
+    assert asyncio.run(ppb2_nb_ecfp4(smiles)) != "{}"
 
 
 if __name__ == "__main__":
