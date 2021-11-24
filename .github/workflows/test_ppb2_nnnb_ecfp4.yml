@@ -2,9 +2,8 @@ name: ppb2_nnnb_ecfp4 testing
 
 on:
   workflow_dispatch:
-  push:
   schedule:
-    - cron: '0 12 * * *'
+    - cron: '0 7 * * *'
 
 jobs:
   build-linux:
