@@ -49,7 +49,7 @@ async def targetHunter(smile):
 
     # patterns = re.compile('')
     try:
-        wrkid = re.findall("(wrk\d*)", page)[0]
+        wrkid = re.findall(r"(wrk\d*)", page)[0]
     except IndexError:
         return "{}"
 

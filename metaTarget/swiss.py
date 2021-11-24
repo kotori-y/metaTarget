@@ -27,7 +27,7 @@ async def swiss(smile):
         return "{}"
 
     try:
-        x = re.findall('location.replace\("(.*?)"\);', response.text)[0]
+        x = re.findall(r'location.replace\("(.*?)"\);', response.text)[0]
     except IndexError:
         return "{}"
 
