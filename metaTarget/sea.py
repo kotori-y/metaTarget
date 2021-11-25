@@ -47,14 +47,14 @@ async def sea(smiles: str) -> json:
         return "{}"
 
     try:
-        page = session.get(response.url).text
+        page = session.get(response.url, timeout=30).text
     except RequestException:
         return
 
     attempt = 0
     while 'pending' in page:
         await asyncio.sleep(15)
-        page = session.get(response.url).text
+        page = session.get(response.url, timeout=30).text
         attempt += 1
         if attempt == 5:
             return json.dumps({})
