@@ -5,10 +5,10 @@ from typing import Callable
 def retry(maxAttemptTimes: int):
     def decorator(func: Callable):
         @wraps(func)
-        def wrapper(*args, **kwargs):
+        async def wrapper(*args, **kwargs):
             attempt = 0
             while attempt < maxAttemptTimes:
-                res = func(*args, **kwargs)
+                res = await func(*args, **kwargs)
                 if res != "{}":
                     return res
                 else:
