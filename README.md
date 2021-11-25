@@ -89,3 +89,42 @@ if __name__ == "__main__":
     # print(out)
 ```
 
+### 注意
+
+**请勿在Spyder、Jupyter或其他以IPython为运行环境的IDE中直接运行本程序**，否则会抛出以下异常
+
+> RuntimeError: asyncio.run() cannot be called from a running event loop.
+
+这是由于它们已经运行在事件循环（event loop）。
+
+### Spyder
+
+复制代码在IPython中运行
+
+#### Jupyter
+
+将<code>asyncio.run()</code>替换成<code>await</code>关键字
+
+```python
+jsonRes = await targetNet(smiles)
+```
+
+### Attention
+
+**The exception would be raised while running directly this code in Spyder, Jupyter or other IDE based on  Ipython**.
+
+> RuntimeError: asyncio.run() cannot be called from a running event loop.
+
+Since IPython is already running an event loop, the <code>asyncio.run()</code>should not be instead.
+
+#### Spyder
+
+Paste the code block to Ipython to excute.
+
+#### Jupyter
+
+Use <code>await</code> to instead all <code>asyncio.run()</code>
+
+```python
+jsonRes = await targetNet(smiles)
+```
