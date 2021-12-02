@@ -64,6 +64,8 @@ async def targetHunter(smile):
         df = pd.read_html(result_page, header=0)[1]
     except ValueError:
         return "{}"
+    except IndexError:
+        return "{}"
 
     clean_target = [x.replace('Find Assays Nearby', '') for x in df['Target']]
     df['Target'] = clean_target
