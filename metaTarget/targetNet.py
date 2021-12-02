@@ -22,6 +22,8 @@ async def targetNet(smile: str) -> json:
         out = pd.read_html(resp.text)[0]
     except ValueError:
         return "{}"
+    except IndexError:
+        return "{}"
 
     return out.T.to_json()
 

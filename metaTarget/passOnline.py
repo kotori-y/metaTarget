@@ -57,6 +57,8 @@ async def passOnline(smiles: str):
         df = pd.read_html(result, header=0, thousands=None)[0]
     except ValueError:
         return "{}"
+    except IndexError:
+        return "{}"
 
     df.columns = ['Probability to be active', 'Probability to be inactive', 'Biological Activity']
 

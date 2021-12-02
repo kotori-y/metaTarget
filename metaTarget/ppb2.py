@@ -87,6 +87,8 @@ class PPBTwo:
             df = pd.read_html(response.text, header=0)[1]
         except ValueError:
             return "{}"
+        except IndexError:
+            return "{}"
 
         df.columns = ['Rank', 'ChEMBL ID', 'Common name', 'Method_ID']
         df['Method_ID'] = self.method

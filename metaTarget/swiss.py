@@ -43,6 +43,8 @@ async def swiss(smile):
         df = pd.read_html(page, header=0)[0]
     except ValueError:
         return "{}"
+    except IndexError:
+        return "{}"
 
     clean_actives = [x.replace(' &nbsp', '') for x in df['Known actives (3D/2D)']]
     df['Known actives (3D/2D)'] = clean_actives

@@ -61,7 +61,9 @@ async def sea(smiles: str) -> json:
     try:
         df: pd.DataFrame = pd.read_html(page)[0].dropna(axis=0)
     except ValueError:
-        df: pd.DataFrame = pd.DataFrame()
+       return "{}"
+    except IndexError:
+        return "{}"
 
     return df.T.to_json()
 
